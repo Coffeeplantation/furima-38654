@@ -1,24 +1,50 @@
-# README
+## users テーブル（新規登録画面）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column              | Type   | Options                        |
+| --------------------| ------ | ------------------------------ |
+| email               | string | null: false, unique: true      |
+| encrypted_password  | string | null: false                    |
+| nickname            | string | null: false                    |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :items
 
-* System dependencies
+## itemsテーブル（出品画面）
 
-* Configuration
+| Column              | Type       | Options                      |
+| --------------------| ---------  | ---------------------------- |
+| text                | text       | null: false                  |
+| user_id             | text       | null: false foreign_key:true |
 
-* Database creation
+### Association
 
-* Database initialization
+- belongs_to :user
+- belongs_to :addresses
+- belongs_to :order
 
-* How to run the test suite
+## ordersテーブル（購入機能）
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column              | Type       | Options                      |
+| --------------------| ---------  | ---------------------------- |
+| text                | text       | null: false                  |
+| user_id             | text       | null: false foreign_key:true |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- belongs_to :addresses
+- belongs_to :orders
+
+## addressesテーブル（購入画面）
+
+| Column              | Type       | Options                      |
+| --------------------| ---------  | ---------------------------- |
+| text                | text       | null: false                  |
+| user_id             | text       | null: false foreign_key:true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :items
+- belongs_to :orders
