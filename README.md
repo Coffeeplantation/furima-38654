@@ -9,7 +9,7 @@
 | last_name           | string | null: false                    |
 | family_name_kana    | string | null: false                    |
 | last_name_kana      | string | null: false                    |
-| date型              | string | null: false                    |
+| birth_date          | date   | null: false                    |
 
 ### Association
 
@@ -47,13 +47,13 @@
 
 - belongs_to :user
 - belongs_to :address
-- belongs_to :items
+- belongs_to :item
 
 ## addressesテーブル（購入画面）
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| text                | text       | null: false                  |
+| comment             | text       | null: false                  |
 | post_code           | string     | null: false                  |
 | prefecture          | string     | null: false                  |
 | city                | string     | null: false                  |
