@@ -5,28 +5,29 @@
 | email               | string | null: false, unique: true      |
 | encrypted_password  | string | null: false                    |
 | nickname            | string | null: false                    |
-| name                | string | null: false                    |
-| kana                | string | null: false                    |
-| birthday            | string | null: false                    |
+| family_name         | string | null: false                    |
+| last_name           | string | null: false                    |
+| family_name(kana)   | string | null: false                    |
+| last_name(kana)     | string | null: false                    |
+| date                | string | null: false                    |
 
 ### Association
 
 - has_many :items
 - has_many :orders
-- has_many :addresses
 
 ## itemsテーブル（出品画面）
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| productsname        | text       | null: false                  |
+| item_name           | string     | null: false                  |
 | text                | text       | null: false                  |
 | category            | text       | null: false                  |
-| condition           | text       | null: false                  |
-| fee                 | text       | null: false                  |
-| area                | text       | null: false                  |
-| shipping            | text       | null: false                  |
-| price               | text       | null: false                  |
+| condition_id        | text       | null: false                  |
+| fee_id              | text       | null: false                  |
+| area_id             | text       | null: false                  |
+| shipping_id         | text       | null: false                  |
+| price_id            | text       | null: false                  |
 | user_id             | references | null: false foreign_key:true |
 
 ### Association
@@ -39,7 +40,6 @@
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| title               | text       | null: false                  |
 | text                | text       | null: false                  |
 | user_id             | references | null: false foreign_key:true |
 
@@ -54,9 +54,8 @@
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
 | text                | text       | null: false                  |
-| creditcard          | text       | null: false                  |
-| address             | text       | null: false                  |
-| user_id             | references | null: false foreign_key:true |
+| address             | string     | null: false                  |
+| user_id             | references | null: false                  |
 
 ### Association
 
