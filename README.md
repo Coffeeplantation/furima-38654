@@ -7,9 +7,9 @@
 | nickname            | string | null: false                    |
 | family_name         | string | null: false                    |
 | last_name           | string | null: false                    |
-| family_name(kana)   | string | null: false                    |
-| last_name(kana)     | string | null: false                    |
-| date                | string | null: false                    |
+| family_name_kana    | string | null: false                    |
+| last_name_kana      | string | null: false                    |
+| date型              | string | null: false                    |
 
 ### Association
 
@@ -27,7 +27,7 @@
 | fee_id              | text       | null: false                  |
 | area_id             | text       | null: false                  |
 | shipping_id         | text       | null: false                  |
-| price_id            | text       | null: false                  |
+| price               | text       | null: false                  |
 | user_id             | references | null: false foreign_key:true |
 
 ### Association
@@ -46,15 +46,20 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :addresses
-- belongs_to :orders
+- belongs_to :address
+- belongs_to :items
 
 ## addressesテーブル（購入画面）
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
 | text                | text       | null: false                  |
+| post_code           | string     | null: false                  |
+| prefecture          | string     | null: false                  |
+| city                | string     | null: false                  |
 | address             | string     | null: false                  |
+| building_name       | string     | null: false                  |
+| phone_number        | string     | null: false                  |
 | user_id             | references | null: false                  |
 
 ### Association
