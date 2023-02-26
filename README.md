@@ -15,7 +15,6 @@
 
 - has_many :items
 - has_many :orders
-- has_one :address
 
 ## itemsテーブル（出品画面）
 
@@ -24,7 +23,10 @@
 | item_name           | string     | null: false                  |
 | text                | text       | null: false                  |
 | category_id         | integer    | null: false                  |
+| condition_id        | string     | null: false                  |
 |scheduled_delivery_id| integer    | null: false                  |
+| fee_id              | integer    | null: false                  |
+| prefecture_id       | string     | null: false                  |
 | price               | integer    | null: false                  |
 | user                | references | null: false foreign_key:true |
 
@@ -37,7 +39,7 @@
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| text                | text       | null: false                  |
+| item_name           | string     | null: false                  |
 | user                | references | null: false foreign_key:true |
 
 ### Association
@@ -50,17 +52,13 @@
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| comment             | text       | null: false                  |
 | post_code           | string     | null: false                  |
-| prefecture          | string     | null: false                  |
+| prefecture_id       | integer    | null: false                  |
 | city                | string     | null: false                  |
 | address             | string     | null: false                  |
 | building_name       | string     |                              |
 | phone_number        | string     | null: false                  |
-| user                | references | null: false                  |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :items
-- belongs_to :orders
+- belongs_to :order
