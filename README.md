@@ -5,10 +5,10 @@
 | email               | string | null: false, unique: true      |
 | encrypted_password  | string | null: false                    |
 | nickname            | string | null: false                    |
-| familyname          | string | null: false                    |
-| lastname            | string | null: false                    |
-| familyname_kana     | string | null: false                    |
-| lastname_kana       | string | null: false                    |
+| famil_yname          | string | null: false                    |
+| last_name            | string | null: false                    |
+| family_name_kana     | string | null: false                    |
+| last_name_kana       | string | null: false                    |
 | birth_date          | date   | null: false                    |
 
 ### Association
@@ -26,7 +26,7 @@
 | condition_id        | string     | null: false                  |
 |scheduled_delivery_id| integer    | null: false                  |
 | fee_id              | integer    | null: false                  |
-| prefecture_id       | string     | null: false                  |
+| prefecture_id       | integer     | null: false                  |
 | price               | integer    | null: false                  |
 | user                | references | null: false foreign_key:true |
 
@@ -39,14 +39,14 @@
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| item_name           | string     | null: false                  |
+| item_name           | string     | null: false foreign_key:true |
 | user                | references | null: false foreign_key:true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :address
 - belongs_to :item
+- has_one :address
 
 ## addressesテーブル（購入画面）
 
@@ -58,6 +58,7 @@
 | address             | string     | null: false                  |
 | building_name       | string     |                              |
 | phone_number        | string     | null: false                  |
+| order               | references | null: false foreign_key:true |
 
 ### Association
 
