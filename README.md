@@ -20,7 +20,7 @@
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
-| item                | references | null: false                  |
+| item                | references | null: false foreign_key:true |
 | item_text           | text       | null: false                  |
 | category_id         | integer    | null: false                  |
 | condition_id        | integer    | null: false                  |
