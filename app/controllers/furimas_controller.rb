@@ -50,5 +50,11 @@ private
     unless user_signed_in?
       redirect_to action: :index
     end
+
+    def furima_params
+      params.require(:furima).permit(:content, :image).merge(user_id: current_user.id)
+  
+
+
   end
 end
