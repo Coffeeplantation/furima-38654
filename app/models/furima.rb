@@ -13,4 +13,7 @@ class Furima < ApplicationRecord
   validates :content, presence: true
   validates :furima_text, :text, presence: true
   validates :category_id, numericality: { other_than: 1 } 
+  validates :prefecture_id, numericality: { other_than: 1 } 
+  validates :scheduled_delivery, numericality: { other_than: 1 } 
+  validates :fee_id, numericality: { other_than: 1 } 
 end
