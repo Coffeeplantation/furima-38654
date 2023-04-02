@@ -52,7 +52,7 @@ private
     end
 
     def furima_params
-      params.require(:furima).permit(:image,:item, :items_text, :category, :condition, :fee, :prefecture, :scheduled_delivery, ).merge(user_id: current_user.id)
+      params.require(:furima).permit(:image,:item, :items_text, :category_id, :condition_id, :fee_id, :prefecture_id, :scheduled_delivery_id, ).merge(user_id: current_user.id)
   
     end
   end

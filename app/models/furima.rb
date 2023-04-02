@@ -12,6 +12,7 @@ class Furima < ApplicationRecord
   validates :image, presence: true
   validates :item, presence: true
   validates :item_text, presence: true
+  validates :condition_id, numericality: { other_than: 1 } 
   validates :category_id, numericality: { other_than: 1 } 
   validates :prefecture_id, numericality: { other_than: 1 } 
   validates :scheduled_delivery_id, numericality: { other_than: 1 } 
