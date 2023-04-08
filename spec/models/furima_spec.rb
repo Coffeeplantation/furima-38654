@@ -20,7 +20,7 @@ RSpec.describe Furima, type: :model do
     context '出品ができない時' do
 
       it '商品画像を1枚つけることが必須であること' do
-        @furima.image.key = 'nil'
+        @furima.image= nil
         @furima.valid?
         expect(@furima.errors.full_messages).to include{"Image can't be blank"}
       end
@@ -125,7 +125,7 @@ RSpec.describe Furima, type: :model do
         @furima.valid?
         expect(@furima.errors.full_messages).to include("Scheduled delivery must be other than 1")
       end
-      
+
     end
   end
 end
