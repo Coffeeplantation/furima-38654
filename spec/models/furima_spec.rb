@@ -20,7 +20,7 @@ RSpec.describe Furima, type: :model do
     context '出品ができない時' do
 
       it '商品画像を1枚つけることが必須であること' do
-        @furima.image.key = ''
+        @furima.image.key = 'nil'
         @furima.valid?
         expect(@furima.errors.full_messages).to include{"Image can't be blank"}
       end
@@ -95,6 +95,37 @@ RSpec.describe Furima, type: :model do
         @furima.valid?
         expect(@furima.errors.full_messages).to include("Price Half-width number")
       end
+
+      it 'カテゴリーに「---」が選択されている場合は出品できない' do
+        @furima.category_id = '1'
+        @furima.valid?
+        expect(@furima.errors.full_messages).to include("Category must be other than 1")
+      end
+      
+      it '商品の状態に「---」が選択されている場合は出品できない' do
+        @furima.condition_id = '1'
+        @furima.valid?
+        expect(@furima.errors.full_messages).to include("Condition must be other than 1")
+      end
+      
+      it '配送料の負担に「---」が選択されている場合は出品できない' do
+        @furima.fee_id = '1'
+        @furima.valid?
+        expect(@furima.errors.full_messages).to include("Fee must be other than 1")
+      end
+      
+      it '発送元の地域に「---」が選択されている場合は出品できない' do
+        @furima.prefecture_id = '1'
+        @furima.valid?
+        expect(@furima.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+
+      it '発送までの日数に「---」が選択されている場合は出品できない' do
+        @furima.scheduled_delivery_id = '1'
+        @furima.valid?
+        expect(@furima.errors.full_messages).to include("Scheduled delivery must be other than 1")
+      end
+      
     end
   end
 end

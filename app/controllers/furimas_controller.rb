@@ -1,6 +1,6 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_furima, only: [:edit, :show]
+  #before_action :set_furima, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -40,8 +40,6 @@ class FurimasController < ApplicationController
     #end
   #end
 
-private
-
   def set_furima
     @furima = Furima.find(params[:id])
   end
@@ -50,6 +48,8 @@ private
     unless user_signed_in?
       redirect_to action: :index
     end
+
+    private
 
     def furima_params
       params.require(:furima).permit(:image,:price, :item, :item_text, :category_id, :condition_id, :fee_id, :prefecture_id, :scheduled_delivery_id, ).merge(user_id: current_user.id)
