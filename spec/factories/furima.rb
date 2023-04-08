@@ -10,5 +10,10 @@ FactoryBot.define do
     fee_id                   {2}
     prefecture_id            {2}
     price                    {5000}
+
+    after(:build) do |furima|
+      furima.image.attach(io: File.open('app/assets/images/star.png'), filename: 'star.png')
+
   end
+end
 end

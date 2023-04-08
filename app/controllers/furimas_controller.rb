@@ -4,25 +4,25 @@ class FurimasController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @furimas = Furima.includes(:user).order('created_at DESC')
+    #@furimas = Furima.includes(:user).order('created_at DESC')
   end
 
  def new
     @furima = Furima.new
  end
 
-  def show
-    @comment = Comment.new
-   @comments = @furima.comments
-  end
+  #def show
+   # @comment = Comment.new
+   #@comments = @furima.comments
+  #end
 
-  def destroy
-    if @furima.destroy
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
-  end
+  #def destroy
+   # if @furima.destroy
+    #  redirect_to root_path
+    #else
+     # redirect_to root_path
+    #end
+  #end
 
   def create
     @furima = Furima.new(furima_params)
@@ -33,12 +33,12 @@ class FurimasController < ApplicationController
     end
   end
 
-  def edit
-    @furima = Furima.find(params[:id])
-    unless user_signed_in? && current_user.id == @furima.user_id
-      redirect_to action: :index
-    end
-  end
+  #def edit
+   # @furima = Furima.find(params[:id])
+    #unless user_signed_in? && current_user.id == @furima.user_id
+     # redirect_to action: :index
+    #end
+  #end
 
 private
 
