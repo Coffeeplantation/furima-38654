@@ -41,6 +41,7 @@ class FurimasController < ApplicationController
   #end
 
   #def set_furima
+
    # @furima = Furima.find(params[:id])
   #end
 
@@ -52,4 +53,5 @@ class FurimasController < ApplicationController
   
     end
   end
+
 end
