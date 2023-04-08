@@ -40,9 +40,9 @@ class FurimasController < ApplicationController
     #end
   #end
 
-  def set_furima
-    @furima = Furima.find(params[:id])
-  end
+  #def set_furima
+   # @furima = Furima.find(params[:id])
+  #end
 
   def move_to_index
     unless user_signed_in?
