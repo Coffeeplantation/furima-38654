@@ -4,7 +4,7 @@ class FurimasController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    #@furimas = Furima.includes(:user).order('created_at DESC')
+    @furimas = Furima.includes(:user).order('created_at DESC')
   end
 
  def new
