@@ -53,5 +53,3 @@ class FurimasController < ApplicationController
   
     end
   end
-
-end
