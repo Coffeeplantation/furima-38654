@@ -1,7 +1,6 @@
 class FurimasController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  # :destroy
-  before_action :set_furima, only: [:edit, :show,:update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_furima, only: [:edit, :show,:update, :destroy]
   #before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -39,13 +38,14 @@ end
   end
 
 
-  #def destroy
-   # if @furima.destroy
-    #  redirect_to root_path
-    #else
-     # redirect_to root_path
-    #end
-  #end
+  def destroy
+    if @furima.user_id == current_user.id
+      @furima.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
 
   
 
