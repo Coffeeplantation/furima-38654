@@ -1,5 +1,6 @@
 class FurimasController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+  #:edit, :update, :destroy
   #before_action :set_furima, only: [:edit, :show]
   #before_action :move_to_index, except: [:index, :show]
 
@@ -11,10 +12,9 @@ class FurimasController < ApplicationController
     @furima = Furima.new
  end
 
-  #def show
-   # @comment = Comment.new
-   #@comments = @furima.comments
-  #end
+  def show
+   @furima = Furima.find(params[:id])
+  end
 
   #def destroy
    # if @furima.destroy
