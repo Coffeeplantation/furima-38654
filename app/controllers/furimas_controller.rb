@@ -11,10 +11,9 @@ class FurimasController < ApplicationController
     @furima = Furima.new
  end
 
-  #def show
-   # @comment = Comment.new
-   #@comments = @furima.comments
-  #end
+  def show
+   @furima = Furima.find(params[:id])
+  end
 
   #def destroy
    # if @furima.destroy
