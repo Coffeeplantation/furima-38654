@@ -1,6 +1,5 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  # :destroy
   before_action :set_furima, only: [:edit, :show,:update, :destroy]
   #before_action :move_to_index, except: [:index, :show]
 
