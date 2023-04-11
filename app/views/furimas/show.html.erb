@@ -26,7 +26,7 @@
     <p class="or-text">or</p>
     <%= link_to "削除", furima_path(@furima.id), method: :delete, class:"item-destroy" %>
 <% else %>
-    <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+    <%= link_to "購入画面に進む", furima_orders_path(@furima.id),class:"item-red-btn"%>
 <% end %>
 <% end %>
     <div class="item-explain-box">
