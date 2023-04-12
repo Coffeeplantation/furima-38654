@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
   def order_params
     # この時点では、order_idが不要。またrequire外の情報は参照するため、mergeとする。
-    params.require(:order_address).permit(:post_code, :prefecture_id, :city, :address, :building_name, :phone_number, :price).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:order_address).permit(:post_code, :prefecture_id, :city, :address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
@@ -40,6 +40,6 @@ class OrdersController < ApplicationController
   def non_purchased_item
     # itemがあっての、order_form（入れ子構造）。他のコントローラーで生成されたitemを使うにはcreateアクションに定義する。
     @furima = Furima.find(params[:furima_id])
-    #redirect_to root_path if current_user.id == @furima.user_id || @furima.order.present?
+    redirect_to root_path if current_user.id == @furima.user_id || @furima.order.present?
   end
 end

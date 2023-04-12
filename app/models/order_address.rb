@@ -16,11 +16,10 @@ class OrderAddress
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
     # トークンのバリデーション
     validates :token, presence: true
-    validates :price, presence: true
   end
 
   def save
-    order = Order.create(user_id: user_id, item_id: item_id)
+    order = Order.create(user_id: user_id, furima_id: furima_id)
     # ストロングパラメーターでデータが運ばれ、それらが保存のタイミングで「order_id」が生成され、保存される。
     Payment.create(order_id: order.id, post_code: post_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number)
   end
