@@ -15,7 +15,7 @@ class OrderAddress
     validates :address
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
     # トークンのバリデーション
-    #validates :token
+    validates :token
   end
 
   def save
