@@ -4,9 +4,11 @@ RSpec.describe OrderAddress, type: :model do
   before do
     @order_address = FactoryBot.build(:order_address)
   end
-
   describe '配送先情報の保存' do
+
+
     context '配送先情報の保存ができるとき' do
+
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@order_address).to be_valid
       end
@@ -44,7 +46,9 @@ RSpec.describe OrderAddress, type: :model do
       end
     end
 
+
     context '配送先情報の保存ができないとき' do
+
       it 'user_idが空だと保存できない' do
         @order_address.user_id = nil
         @order_address.valid?
@@ -75,13 +79,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
       end
-      
       it '市区町村が空だと保存できないこと' do
         @order_address.city = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("City can't be blank")
       end
-
       it '番地が空だと保存できないこと' do
         @order_address.address = nil
         @order_address.valid?
