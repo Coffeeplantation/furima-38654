@@ -37,7 +37,7 @@ class FurimasController < ApplicationController
   end
 
   def destroy
-    if @furima.user_id == current_user.id
+    if @furima.user_id == current_user.id 
       @furima.destroy
       redirect_to root_path
     else
