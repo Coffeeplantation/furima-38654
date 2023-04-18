@@ -23,18 +23,24 @@ class FurimasController < ApplicationController
   end
 
   def update
-    if @furima.update(furima_params)
-      redirect_to furimas_path(@furima)
+    @furima.update(furima_params)
+    if @furima.valid?
+      redirect_to furima_path(@furima)
     else
       render :edit
     end
   end
 
   def edit
-    unless current_user.id == @furima.user_id && @furima.order.nil?
-     redirect_to action: :index
+    if current_user.id == @furima.user_id && @furima.order.nil?
+    else
+      redirect_to root_path
     end
   end
+
+
+
+
 
   def destroy
     if @furima.user_id == current_user.id 
