@@ -16,7 +16,7 @@
 - has_many :items
 - has_many :orders
 
-## itemsテーブル（出品画面）
+## furimasテーブル（出品画面）
 
 | Column              | Type       | Options                      |
 | --------------------| ---------  | ---------------------------- |
@@ -45,7 +45,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item
+- belongs_to :furima
 - has_one :address
 
 ## addressesテーブル（購入画面）
